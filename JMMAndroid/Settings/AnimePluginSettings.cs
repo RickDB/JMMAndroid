@@ -19,7 +19,7 @@ namespace JMMAndroid
         public bool HideEpisodeImageWhenUnwatched = false;
         public bool HideEpisodeOverviewWhenUnwatched = false;
         public string ImportFolderMappingsList = "";
-        public string CurrentJMMUserID = "";
+        public string CurrentJMMUserID = "1";
         public bool DisplayRatingDialogOnCompletion = true;
         public bool LoadLocalThumbnails = true;
 

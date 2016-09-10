@@ -221,76 +221,86 @@ namespace JMMAndroid.ViewModel
 			}
 		}
 
-		public bool SetupBinaryClient()
-		{
-			ServerOnline = false;
-			_clientBinaryHTTP = null;
-			ImportFolders.Clear();
+        public bool SetupBinaryClient()
+        {
+            ServerOnline = false;
+            _clientBinaryHTTP = null;
+            ImportFolders.Clear();
 
-			if (!SettingsAreValid()) return false;
+            if (!SettingsAreValid()) return false;
 
-			try
-			{
-				AnimePluginSettings settings = new AnimePluginSettings();
-				string url = string.Format(@"http://{0}:{1}/JMMServerBinary", settings.JMMServer_Address, settings.JMMServer_Port);
-				BaseConfig.MyAnimeLog.Write("JMM Server URL: " + url);
+            try
+            {
+                AnimePluginSettings settings = new AnimePluginSettings();
+                string url = string.Format(@"http://{0}:{1}/JMMServerBinary", settings.JMMServer_Address, settings.JMMServer_Port);
+                BaseConfig.MyAnimeLog.Write("JMM Server URL: " + url);
 
-				BinaryMessageEncodingBindingElement encoding = new BinaryMessageEncodingBindingElement();
-				encoding.ReaderQuotas.MaxArrayLength = int.MaxValue;
-				encoding.ReaderQuotas.MaxBytesPerRead = int.MaxValue;
-				encoding.ReaderQuotas.MaxDepth = int.MaxValue;
-				encoding.ReaderQuotas.MaxNameTableCharCount = int.MaxValue;
-				encoding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
+                BinaryMessageEncodingBindingElement encoding = new BinaryMessageEncodingBindingElement();
+                encoding.ReaderQuotas.MaxArrayLength = int.MaxValue;
+                encoding.ReaderQuotas.MaxBytesPerRead = int.MaxValue;
+                encoding.ReaderQuotas.MaxDepth = int.MaxValue;
+                encoding.ReaderQuotas.MaxNameTableCharCount = int.MaxValue;
+                encoding.ReaderQuotas.MaxStringContentLength = int.MaxValue;
 
-				HttpTransportBindingElement transport = new HttpTransportBindingElement();
-				transport.MaxReceivedMessageSize = int.MaxValue;
-				transport.MaxBufferPoolSize = int.MaxValue;
-				transport.MaxBufferSize = int.MaxValue;
-				transport.MaxReceivedMessageSize = int.MaxValue;
+                HttpTransportBindingElement transport = new HttpTransportBindingElement();
+                transport.MaxReceivedMessageSize = int.MaxValue;
+                transport.MaxBufferPoolSize = int.MaxValue;
+                transport.MaxBufferSize = int.MaxValue;
+                transport.MaxReceivedMessageSize = int.MaxValue;
 
 
-				Binding binding = new CustomBinding(encoding, transport);
+                Binding binding = new CustomBinding(encoding, transport);
 
-				binding.SendTimeout = new TimeSpan(30, 0, 30);
-				binding.ReceiveTimeout = new TimeSpan(30, 0, 30);
-				binding.OpenTimeout = new TimeSpan(30, 0, 30);
-				binding.CloseTimeout = new TimeSpan(30, 0, 30);
+                binding.SendTimeout = new TimeSpan(30, 0, 30);
+                binding.ReceiveTimeout = new TimeSpan(30, 0, 30);
+                binding.OpenTimeout = new TimeSpan(30, 0, 30);
+                binding.CloseTimeout = new TimeSpan(30, 0, 30);
 
-				EndpointAddress endpoint = new EndpointAddress(new Uri(url));
+                EndpointAddress endpoint = new EndpointAddress(new Uri(url));
 
-				var factory = new ChannelFactory<JMMServerBinary.IJMMServerChannel>(binding, endpoint);
-				foreach (OperationDescription op in factory.Endpoint.Contract.Operations)
-				{
-					var dataContractBehavior = op.Behaviors.Find<DataContractSerializerOperationBehavior>();
-					if (dataContractBehavior != null)
-					{
-						dataContractBehavior.MaxItemsInObjectGraph = int.MaxValue;
-					}
-				}
+                BaseConfig.MyAnimeLog.Write("New channel factory");
 
-				_clientBinaryHTTP = factory.CreateChannel();
+                var factory = new ChannelFactory<JMMServerBinary.IJMMServerChannel>(binding, endpoint);
+                foreach (OperationDescription op in factory.Endpoint.Contract.Operations)
+                {
+                    var dataContractBehavior = op.Behaviors.Find<DataContractSerializerOperationBehavior>();
+                    if (dataContractBehavior != null)
+                    {
+                        dataContractBehavior.MaxItemsInObjectGraph = int.MaxValue;
+                    }
+                }
 
-				// try connecting to see if the server is responding
-				JMMServerBinary.Contract_ServerStatus status = JMMServerVM.Instance.clientBinaryHTTP.GetServerStatus();
-				ServerOnline = true;
+                BaseConfig.MyAnimeLog.Write("Create channel factory");
 
-				GetServerSettings();
-				RefreshImportFolders();
+                _clientBinaryHTTP = factory.CreateChannel();
 
-				BaseConfig.MyAnimeLog.Write("JMM Server Status: " + status.GeneralQueueState);
+                // try connecting to see if the server is responding
+                BaseConfig.MyAnimeLog.Write("Get server status");
 
-				return true;
-			}
-			catch (Exception ex)
-			{
-				//Utils.ShowErrorMessage(ex);
-				BaseConfig.MyAnimeLog.Write(ex.ToString());
-				return false;
-			}
+                JMMServerBinary.Contract_ServerStatus status = JMMServerVM.Instance.clientBinaryHTTP.GetServerStatus();
+                ServerOnline = true;
 
-		}
+                BaseConfig.MyAnimeLog.Write("Get server settings");
 
-		private void GetServerSettings()
+                GetServerSettings();
+
+                BaseConfig.MyAnimeLog.Write("Refresh import folders");
+
+                RefreshImportFolders();
+
+                BaseConfig.MyAnimeLog.Write("JMM Server Status: " + status.GeneralQueueState);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //Utils.ShowErrorMessage(ex);
+                BaseConfig.MyAnimeLog.Write(ex.ToString());
+                return false;
+            }
+        }
+
+        private void GetServerSettings()
 		{
 			JMMServerBinary.Contract_ServerSettings contract = _clientBinaryHTTP.GetServerSettings();
 

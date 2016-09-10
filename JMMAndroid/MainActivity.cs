@@ -10,9 +10,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Webkit;
 using Android.Widget;
 using Cornerstone.MP;
 using JMMAndroid.ImageManagement;
+using JMMAndroid.JMMServerBinary;
 using JMMAndroid.MultiSortLib;
 using JMMAndroid.ViewModel;
 
@@ -22,10 +24,9 @@ namespace JMMAndroid
     public class MainActivity : Activity
     {
         // Settings
-        public static AnimePluginSettings settings = null;
+        public static AnimePluginSettings settings = new AnimePluginSettings();
 
         // Images
-
         public static ImageDownloader imageHelper = null;
 
         // Version checks
@@ -51,6 +52,9 @@ namespace JMMAndroid
         {
             //bool authed = JMMServerVM.Instance.AuthenticateUser("Default", "");
             //Log.Debug("FirstStart", "Authenticated: " + authed);
+            //Log.Debug("FirstStart", "Server address: " + settings.JMMServer_Address);
+            //Log.Debug("FirstStart", "Server port: " + settings.JMMServer_Port);
+
             List<JMMUserVM> allUsers = JMMServerHelper.GetAllUsers();
             Log.Debug("FirstStart", "User count: " + allUsers.Count);
 
