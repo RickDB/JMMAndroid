@@ -50,7 +50,7 @@ namespace JMMAndroid
 					}
 					catch (Exception ex)
 					{
-						BaseConfig.MyAnimeLog.Debug("DictTvDBEpisodes\r\n" + ex.ToString());
+						BaseConfig.MyAnimeLog.Write("DictTvDBEpisodes\r\n" + ex.ToString());
 					}
 				}
 				return dictTvDBEpisodes;
@@ -91,7 +91,7 @@ namespace JMMAndroid
 					}
 					catch (Exception ex)
 					{
-						BaseConfig.MyAnimeLog.Debug("DictTvDBSeasons\r\n" + ex.ToString());
+						BaseConfig.MyAnimeLog.Write("DictTvDBSeasons\r\n" + ex.ToString());
 					}
 				}
 				return dictTvDBSeasons;
@@ -138,7 +138,7 @@ namespace JMMAndroid
 					}
 					catch (Exception ex)
 					{
-						BaseConfig.MyAnimeLog.Debug("DictTvDBSeasonsSpecials\r\n" + ex.ToString());
+						BaseConfig.MyAnimeLog.Write("DictTvDBSeasonsSpecials\r\n" + ex.ToString());
 					}
 				}
 				return dictTvDBSeasonsSpecials;
@@ -166,7 +166,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("PopulateTvDBEpisodes\r\n" + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("PopulateTvDBEpisodes\r\n" + ex.ToString());
 			}
 		}
 

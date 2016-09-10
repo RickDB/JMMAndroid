@@ -41,7 +41,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("PopulateCrossRefs\r\n" + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("PopulateCrossRefs\r\n" + ex.ToString());
 			}
 		}
 
@@ -115,7 +115,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("PopulateDictTvDBEpisodes\r\n" + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("PopulateDictTvDBEpisodes\r\n" + ex.ToString());
 			}
 		}
 
@@ -133,7 +133,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("PopulateCrossRefsEpisodes\r\n" + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("PopulateCrossRefsEpisodes\r\n" + ex.ToString());
 			}
 		}
 
@@ -150,7 +150,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("Populate\r\n" + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("Populate\r\n" + ex.ToString());
 			}
 		}
 

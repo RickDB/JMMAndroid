@@ -128,7 +128,7 @@ namespace JMMAndroid.ViewModel
 				JMMServerBinary.Contract_ImportFolder_SaveResponse response = JMMServerVM.Instance.clientBinaryHTTP.SaveImportFolder(this.ToContract());
 				if (!string.IsNullOrEmpty(response.ErrorMessage))
 				{
-					BaseConfig.MyAnimeLog.Debug(response.ErrorMessage);
+					BaseConfig.MyAnimeLog.Write(response.ErrorMessage);
 					return false;
 				}
 
@@ -139,7 +139,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return false;
 		}
@@ -151,7 +151,7 @@ namespace JMMAndroid.ViewModel
 
 				string result = JMMServerVM.Instance.clientBinaryHTTP.DeleteImportFolder(ImportFolderID.Value);
 				if (!string.IsNullOrEmpty(result))
-					BaseConfig.MyAnimeLog.Debug(result);
+					BaseConfig.MyAnimeLog.Write(result);
 				else
 				{
 					AnimePluginSettings settings = new AnimePluginSettings();
@@ -160,7 +160,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 	}

@@ -85,7 +85,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -142,7 +142,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -177,7 +177,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -212,7 +212,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -247,7 +247,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -282,7 +282,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -317,7 +317,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -352,7 +352,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -387,7 +387,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -422,7 +422,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -457,7 +457,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -492,7 +492,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -769,7 +769,7 @@ namespace JMMAndroid.ImageManagement
 			{
 				imagesToDownload.Remove(req);
 				OnQueueUpdateEvent(new QueueUpdateEventArgs(this.QueueCount));
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -877,7 +877,7 @@ namespace JMMAndroid.ImageManagement
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 
 		}

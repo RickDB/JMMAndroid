@@ -6,7 +6,7 @@ namespace JMMAndroid
     public static class BaseConfig
     {
         private static AnimePluginSettings settingsLocal = null;
-        private static ILog log = null;
+        private static MyAnimeLog log = null;
         public static AnimePluginSettings Settings
         {
             get
@@ -20,7 +20,7 @@ namespace JMMAndroid
                 return MainActivity.settings;
             }
         }
-        public static ILog MyAnimeLog
+        public static MyAnimeLog MyAnimeLog
         {
             get
             {

@@ -12,7 +12,7 @@ using Thread = System.Threading.Thread;
 
 namespace JMMAndroid
 {
-	public class MyAnimeLog : ILog
+	public class MyAnimeLog
 	{
 		private static string m_filename = GetLogName();
 		private static string logNameBackup = GetLogNameBackup();
@@ -130,6 +130,9 @@ namespace JMMAndroid
 
 		public void Write(string entry, bool singleLine)
 		{
+		    Log.Debug("Default", entry);
+
+		    /*
 			if (m_LogStream != null)
 			{
 				lock (m_LogStream)
@@ -160,7 +163,7 @@ namespace JMMAndroid
 						//Log_Write(ex.Message);
 					}
 				}
-			}
+			}*/
 		}
 
 		#endregion
@@ -171,65 +174,6 @@ namespace JMMAndroid
 	    }
 
 	    public IntPtr Handle { get; }
-	    public void Debug(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Debug(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Error(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Error(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Fatal(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Fatal(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Info(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Info(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Trace(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Trace(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Warn(Object p0)
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    public void Warn(Object p0, Throwable p1)
-	    {
-	        throw new NotImplementedException();
-	    }
 
 	    public bool IsDebugEnabled { get; }
 	    public bool IsErrorEnabled { get; }

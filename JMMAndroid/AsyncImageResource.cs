@@ -92,10 +92,10 @@ namespace Cornerstone.MP {
 
         private void writeProperty()
         {
-            BaseConfig.MyAnimeLog.Debug("Try Write Prop: " + _property + " to " + _identifier);
+            BaseConfig.MyAnimeLog.Write("Try Write Prop: " + _property + " to " + _identifier);
             if (_active && _property != null && _identifier != null)
             {
-                BaseConfig.MyAnimeLog.Debug("Write Prop: " + _property + " to " + _identifier);
+                BaseConfig.MyAnimeLog.Write("Write Prop: " + _property + " to " + _identifier);
                 //GUIPropertyManager.SetProperty(_property, _identifier);
             }
             else if (_property != null)

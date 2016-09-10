@@ -14,8 +14,8 @@ namespace JMMAndroid
         public string AnimeBytesCookieHeader = "";
 
         // MA3
-        public string JMMServer_Address = "";
-        public string JMMServer_Port = "";
+        public string JMMServer_Address = "10.1.2.50";
+        public string JMMServer_Port = "8111";
         public bool HideEpisodeImageWhenUnwatched = false;
         public bool HideEpisodeOverviewWhenUnwatched = false;
         public string ImportFolderMappingsList = "";
@@ -28,7 +28,7 @@ namespace JMMAndroid
         public bool FfdshowNotificationsLock = true;
         public int FfdshowNotificationsAutoCloseTime = 3000;
         public int FfdshowNotificationsLockTime = 5000;
-        public bool UseStreaming = true;
+        public bool UseStreaming = false;
         public string ModeToggleKey = "]";
         public string StartTextToggleKey = "[";
         private string _subPaths;
@@ -85,7 +85,7 @@ namespace JMMAndroid
 
             ImportFolderMappingsList = output;
 
-            BaseConfig.MyAnimeLog.Debug("ImportFolderMappingsList: " + ImportFolderMappingsList);
+            BaseConfig.MyAnimeLog.Write("ImportFolderMappingsList: " + ImportFolderMappingsList);
         }
 
         public void RemoveImportFolderMapping(int folderID)
@@ -207,7 +207,7 @@ namespace JMMAndroid
         {
             get
             {
-                //BaseConfig.MyAnimeLog.Debug("Thumbs Folder: {0}", Config.GetFolder(Config.Dir.Thumbs));
+                //BaseConfig.MyAnimeLog.Write("Thumbs Folder: {0}", Config.GetFolder(Config.Dir.Thumbs));
 
                 if (thumbsFolder.Trim().Length > 0)
                 {
@@ -221,7 +221,7 @@ namespace JMMAndroid
                     }
                     catch (Exception ex)
                     {
-                        BaseConfig.MyAnimeLog.Debug(string.Format("Could not create Thumbs Folder: {0} - {1}",
+                        BaseConfig.MyAnimeLog.Write(string.Format("Could not create Thumbs Folder: {0} - {1}",
                             thumbsFolder, ex.Message));
                         //return Config.GetFolder(Config.Dir.Thumbs);
                     }
@@ -471,7 +471,7 @@ bool TorrentsNyaa
 				xmlwriter.SetValue("Anime3", "ImportFolderMappingsList", ImportFolderMappingsList.Trim());
 				xmlwriter.SetValue("Anime3", "CurrentJMMUserID", CurrentJMMUserID);
 
-				BaseConfig.MyAnimeLog.Debug("ImportFolderMappingsList.Save: " + ImportFolderMappingsList);
+				BaseConfig.MyAnimeLog.Write("ImportFolderMappingsList.Save: " + ImportFolderMappingsList);
 
 				xmlwriter.SetValue("Anime3", "ThumbsFolder", thumbsFolder); // use the raw value
 				xmlwriter.SetValue("Anime3", "PluginName", PluginName.Trim());

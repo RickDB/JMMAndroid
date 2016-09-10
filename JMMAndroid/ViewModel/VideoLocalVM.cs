@@ -104,7 +104,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 
 			return eps;

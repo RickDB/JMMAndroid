@@ -42,7 +42,7 @@ namespace JMMAndroid
                 lang = CultureInfo.CurrentUICulture.Name;
             }
 
-            BaseConfig.MyAnimeLog.Debug($"Using language {lang}");
+            BaseConfig.MyAnimeLog.Write($"Using language {lang}");
 
             //path = Config.GetSubFolder(Config.Dir.Language, "MyAnime3");
 
@@ -106,10 +106,10 @@ namespace JMMAndroid
                     return 0; // otherwise we are in an endless loop!
 
                 if (e.GetType() == typeof(FileNotFoundException))
-                    BaseConfig.MyAnimeLog.Debug(
+                    BaseConfig.MyAnimeLog.Write(
                         $"Warning: Cannot find translation file {langPath}.  Failing back to English");
                 else
-                    BaseConfig.MyAnimeLog.Debug(
+                    BaseConfig.MyAnimeLog.Write(
                         $"Error in translation xml file: {lang}. Failing back to English, Exception: {e}");
                 return LoadTranslations("en");
             }
@@ -126,7 +126,7 @@ namespace JMMAndroid
                         }
                         catch (Throwable ex)
                         {
-                            BaseConfig.MyAnimeLog.Debug("Error in Translation Engine. Exception: {0}", ex);
+                            BaseConfig.MyAnimeLog.Write("Error in Translation Engine. Exception: {0}", ex);
                         }
                 }
             }
@@ -138,7 +138,7 @@ namespace JMMAndroid
                     TransType.InvokeMember(fi.Name, BindingFlags.SetField, null, TransType,
                                            new object[] {TranslatedStrings[fi.Name]});
                 else
-                    BaseConfig.MyAnimeLog.Debug(
+                    BaseConfig.MyAnimeLog.Write(
                         "Warning: Translation not found for name: {0}.  Using hard-coded English default.", new Throwable(fi.Name));
             }
             return TranslatedStrings.Count;

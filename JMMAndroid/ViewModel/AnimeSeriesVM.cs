@@ -369,7 +369,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -409,7 +409,7 @@ namespace JMMAndroid.ViewModel
 				}
 				catch (Exception ex)
 				{
-					BaseConfig.MyAnimeLog.Debug(ex.ToString());
+					BaseConfig.MyAnimeLog.Write(ex.ToString());
 				}
 				return epTypes;
 			}
@@ -448,7 +448,7 @@ namespace JMMAndroid.ViewModel
 				}
 				catch (Exception ex)
 				{
-					BaseConfig.MyAnimeLog.Debug(ex.ToString());
+					BaseConfig.MyAnimeLog.Write(ex.ToString());
 				}
 				return epTypes;
 			}
@@ -547,7 +547,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 				return false;
 			}
 		}

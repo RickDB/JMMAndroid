@@ -138,22 +138,22 @@ namespace JMMAndroid
 
         public static Regex UpdateXmlVersion = new Regex("<ExtensionCollection.*?<GeneralInfo>.*?<Name>MyAnime</Name>.*?<Version>.*?<Major>(?<Major>.*?)</Major>.*?<Minor>(?<Minor>.*?)</Minor>.*?<Build>(?<Build>.*?)</Build>.*?<Revision>(?<Revision>.*?)</Revision>", RegexOptions.Singleline);
 
-        public static void CheckRequiredFiles(ILog log)
+        public static void CheckRequiredFiles(MyAnimeLog log)
 		{
 			try
 			{
                 /*
 				Assembly a = Assembly.Load("Core");
 				AssemblyName an = a.GetName();
-				BaseConfig.MyAnimeLog.Debug("Core: {0}", an.Version.ToString());
+				BaseConfig.MyAnimeLog.Write("Core: {0}", an.Version.ToString());
 
 				Assembly a3 = Assembly.Load("MediaPortal");
 				AssemblyName an3 = a3.GetName();
-				BaseConfig.MyAnimeLog.Debug("MediaPortal: {0}", an3.Version.ToString());
+				BaseConfig.MyAnimeLog.Write("MediaPortal: {0}", an3.Version.ToString());
 
 				Assembly a2 = Assembly.Load("ICSharpCode.SharpZipLib");
 				AssemblyName an2 = a2.GetName();
-				BaseConfig.MyAnimeLog.Debug("ICSharpCode.SharpZipLib: {0} (0.85.5.452 or better recommended)", an2.Version.ToString());
+				BaseConfig.MyAnimeLog.Write("ICSharpCode.SharpZipLib: {0} (0.85.5.452 or better recommended)", an2.Version.ToString());
 
 				
 
@@ -174,15 +174,15 @@ namespace JMMAndroid
 				}
 				catch { }
 
-				BaseConfig.MyAnimeLog.Debug("MediaInfo: {0} (0.7.20.0 or better recommended)", mediaInfoVersion);
+				BaseConfig.MyAnimeLog.Write("MediaInfo: {0} (0.7.20.0 or better recommended)", mediaInfoVersion);
 
-				BaseConfig.MyAnimeLog.Debug("Base Folder: {0}", Config.GetFolder(Config.Dir.Base));
-				BaseConfig.MyAnimeLog.Debug("Skin Folder: {0}", Config.GetFolder(Config.Dir.Skin));
-				BaseConfig.MyAnimeLog.Debug("Plugins Folder: {0}", Config.GetFolder(Config.Dir.Plugins));*/
+				BaseConfig.MyAnimeLog.Write("Base Folder: {0}", Config.GetFolder(Config.Dir.Base));
+				BaseConfig.MyAnimeLog.Write("Skin Folder: {0}", Config.GetFolder(Config.Dir.Skin));
+				BaseConfig.MyAnimeLog.Write("Plugins Folder: {0}", Config.GetFolder(Config.Dir.Plugins));*/
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("CheckRequiredFiles: {0}", new Throwable(ex.ToString()));
+				BaseConfig.MyAnimeLog.Write("CheckRequiredFiles: {0}", new Throwable(ex.ToString()));
 			}
 		}
 
@@ -201,7 +201,7 @@ namespace JMMAndroid
         {
             try
             {
-                //BaseConfig.MyAnimeLog.Debug("DownloadWebPage called by: {0} - {1}", GetParentMethodName(), url);
+                //BaseConfig.MyAnimeLog.Write("DownloadWebPage called by: {0} - {1}", GetParentMethodName(), url);
 
                 HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(url);
                 webReq.Timeout = 10000; // 10 seconds
@@ -226,7 +226,7 @@ namespace JMMAndroid
                 {
                     StreamReader reader = new StreamReader(responseStream, encoding);
                     output = reader.ReadToEnd();
-                    //BaseConfig.MyAnimeLog.Debug("DownloadWebPage: {0}", output);
+                    //BaseConfig.MyAnimeLog.Write("DownloadWebPage: {0}", output);
                     responseStream.Close();
                 }
                 webResponse.Close();
@@ -237,7 +237,7 @@ namespace JMMAndroid
                 string msg = "---------- ERROR IN DOWNLOAD WEB PAGE ---------" + Environment.NewLine +
                     url + Environment.NewLine +
                     ex + Environment.NewLine + "------------------------------------";
-                BaseConfig.MyAnimeLog.Debug(msg);
+                BaseConfig.MyAnimeLog.Write(msg);
 
                 // if the error is a 404 error it may mean that there is a bad series association
                 // so lets log it to the web cache so we can investigate
@@ -264,7 +264,7 @@ namespace JMMAndroid
             }
             catch (Exception ex)
             {
-                BaseConfig.MyAnimeLog.Debug(ex.ToString());
+                BaseConfig.MyAnimeLog.Write(ex.ToString());
                 return null;
             }
         }
@@ -329,7 +329,7 @@ namespace JMMAndroid
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
         public static decimal PromptAniDBRating(string title)
@@ -656,7 +656,7 @@ namespace JMMAndroid
 			dlgOK.SetHeading(title);
 
 			string[] lines = msg.Split('\n');
-			BaseConfig.MyAnimeLog.Debug("lines: " + lines.Length.ToString());
+			BaseConfig.MyAnimeLog.Write("lines: " + lines.Length.ToString());
 
 			if (lines.Length == 1)
 				dlgOK.SetLine(1, lines[0]);

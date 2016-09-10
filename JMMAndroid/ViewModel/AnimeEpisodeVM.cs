@@ -233,7 +233,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -430,7 +430,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -489,7 +489,7 @@ namespace JMMAndroid.ViewModel
 				JMMServerVM.Instance.CurrentUser.JMMUserID);
 			if (!string.IsNullOrEmpty(response.ErrorMessage))
 			{
-				BaseConfig.MyAnimeLog.Debug("Error in ToggleWatchedStatus: " + response.ErrorMessage);
+				BaseConfig.MyAnimeLog.Write("Error in ToggleWatchedStatus: " + response.ErrorMessage);
 				return;
 			}
 

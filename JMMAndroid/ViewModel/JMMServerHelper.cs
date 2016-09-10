@@ -139,7 +139,7 @@ namespace JMMAndroid.ViewModel
 
 				if (rec.Recommended_AniDB_Anime == null)
 				{
-					BaseConfig.MyAnimeLog.Debug("Updating data for anime: " + rec.RecommendedAnimeID.ToString());
+					BaseConfig.MyAnimeLog.Write("Updating data for anime: " + rec.RecommendedAnimeID.ToString());
 					JMMServerVM.Instance.clientBinaryHTTP.UpdateAnimeData(rec.RecommendedAnimeID);
 				}
 			}
@@ -161,13 +161,13 @@ namespace JMMAndroid.ViewModel
 
 			while (!imagesAvailable && !timeOut)
 			{
-				BaseConfig.MyAnimeLog.Debug("Checking for images...");
+				BaseConfig.MyAnimeLog.Write("Checking for images...");
 				bool foundAllImages = true;
 				foreach (RecommendationVM rec in tempRecs)
 				{
 					if (!File.Exists(rec.Recommended_AniDB_Anime.PosterPathNoDefault))
 					{
-						BaseConfig.MyAnimeLog.Debug("Downloading image for : " + rec.Recommended_AniDB_Anime.AnimeID.ToString());
+						BaseConfig.MyAnimeLog.Write("Downloading image for : " + rec.Recommended_AniDB_Anime.AnimeID.ToString());
 						MainActivity.imageHelper.DownloadAniDBCover(rec.Recommended_AniDB_Anime, false);
 						foundAllImages = false;
 					}
@@ -192,7 +192,7 @@ namespace JMMAndroid.ViewModel
 		{
 			int animeID = int.Parse(e.Argument.ToString());
 
-			BaseConfig.MyAnimeLog.Debug("Updating data for anime: " + animeID.ToString());
+			BaseConfig.MyAnimeLog.Write("Updating data for anime: " + animeID.ToString());
 			JMMServerVM.Instance.clientBinaryHTTP.UpdateAnimeData(animeID);
 
 			OnGotAnimeEvent(new GotAnimeEventArgs(animeID));
@@ -242,7 +242,7 @@ namespace JMMAndroid.ViewModel
 			{
 				if (!link.AnimeInfoExists)
 				{
-					BaseConfig.MyAnimeLog.Debug("Updating data for anime: " + link.RelatedAnimeID.ToString());
+					BaseConfig.MyAnimeLog.Write("Updating data for anime: " + link.RelatedAnimeID.ToString());
 					JMMServerVM.Instance.clientBinaryHTTP.UpdateAnimeData(link.RelatedAnimeID);
 				}
 			}
@@ -254,7 +254,7 @@ namespace JMMAndroid.ViewModel
 
 			while (!imagesAvailable && !timeOut)
 			{
-				BaseConfig.MyAnimeLog.Debug("Checking for images...");
+				BaseConfig.MyAnimeLog.Write("Checking for images...");
 				links = GetRelatedAnime(animeID);
 				bool foundAllImages = true;
 				foreach (AniDB_Anime_RelationVM link in links)
@@ -263,7 +263,7 @@ namespace JMMAndroid.ViewModel
 					{
 						if (!File.Exists(link.AniDB_Anime.PosterPathNoDefault))
 						{
-							BaseConfig.MyAnimeLog.Debug("Downloading image for : " + link.AniDB_Anime.AnimeID.ToString());
+							BaseConfig.MyAnimeLog.Write("Downloading image for : " + link.AniDB_Anime.AnimeID.ToString());
 							MainActivity.imageHelper.DownloadAniDBCover(link.AniDB_Anime, false);
 							foundAllImages = false;
 						}
@@ -297,7 +297,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 				return null;
 			}
 		}
@@ -336,7 +336,7 @@ namespace JMMAndroid.ViewModel
             }
             catch (Exception ex)
             {
-                BaseConfig.MyAnimeLog.Debug(ex.ToString());
+                BaseConfig.MyAnimeLog.Write(ex.ToString());
             }
 
             gfs.Sort();
@@ -372,16 +372,16 @@ namespace JMMAndroid.ViewModel
 
 				foreach (SortPropOrFieldAndDirection scrit in sortCriteria)
 				{
-					BaseConfig.MyAnimeLog.Debug(string.Format("Sorting: {0} / {1} / {2}", scrit.sPropertyOrFieldName, scrit.fSortDescending, scrit.sortType));
+					BaseConfig.MyAnimeLog.Write(string.Format("Sorting: {0} / {1} / {2}", scrit.sPropertyOrFieldName, scrit.fSortDescending, scrit.sortType));
 				}
 
 				TimeSpan ts = DateTime.Now - start;
 				string msg = string.Format("JMMServerHelper: Got groups for filter: {0} - {1} in {2} ms", groupFilter.GroupFilterName, allGroups.Count, ts.TotalMilliseconds);
-				BaseConfig.MyAnimeLog.Debug(msg);
+				BaseConfig.MyAnimeLog.Write(msg);
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allGroups;
 		}
@@ -403,11 +403,11 @@ namespace JMMAndroid.ViewModel
 
 				TimeSpan ts = DateTime.Now - start;
 				string msg = string.Format("Got sub groups for group: {0} - {1} in {2} ms", grp.GroupName, allGroups.Count, ts.TotalMilliseconds);
-				BaseConfig.MyAnimeLog.Debug(msg);
+				BaseConfig.MyAnimeLog.Write(msg);
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allGroups;
 		}
@@ -429,11 +429,11 @@ namespace JMMAndroid.ViewModel
 
 				TimeSpan ts = DateTime.Now - start;
 				string msg = string.Format("Got series for group: {0} - {1} in {2} ms", grp.GroupName, allSeries.Count, ts.TotalMilliseconds);
-				BaseConfig.MyAnimeLog.Debug(msg);
+				BaseConfig.MyAnimeLog.Write(msg);
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allSeries;
 		}
@@ -455,11 +455,11 @@ namespace JMMAndroid.ViewModel
 
 				TimeSpan ts = DateTime.Now - start;
 				//string msg = string.Format("Got series for group Recursive: {0} - {1} in {2} ms", grp.GroupName, allSeries.Count, ts.TotalMilliseconds);
-				//BaseConfig.MyAnimeLog.Debug(msg);
+				//BaseConfig.MyAnimeLog.Write(msg);
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allSeries;
 		}
@@ -475,7 +475,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return null;
 		}
@@ -491,7 +491,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return null;
 		}
@@ -507,7 +507,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return null;
 		}
@@ -525,7 +525,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allusers;
 
@@ -546,7 +546,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allEps;
 		}
@@ -566,7 +566,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return unlinkedVideos;
 		}
@@ -581,13 +581,13 @@ namespace JMMAndroid.ViewModel
 					return true;
 				else
 				{
-					BaseConfig.MyAnimeLog.Debug("Error in LinkedFileToEpisode: " + result);
+					BaseConfig.MyAnimeLog.Write("Error in LinkedFileToEpisode: " + result);
 					return false;
 				}
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return false;
 		}
@@ -612,7 +612,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetWatchedStatusOnSeries: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetWatchedStatusOnSeries: " + ex.Message);
 			}
 		}
 
@@ -662,7 +662,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 
 
@@ -705,7 +705,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 				
 		}
@@ -724,7 +724,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 		}
 
@@ -740,7 +740,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 
 		}
@@ -780,7 +780,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 		}
 
@@ -815,7 +815,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("SetDefaultPoster: " + ex.Message);
+				BaseConfig.MyAnimeLog.Write("SetDefaultPoster: " + ex.Message);
 			}
 
 		}
@@ -836,7 +836,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 
 			return grps;
@@ -857,7 +857,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allAnime;
 		}
@@ -886,7 +886,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allRelations;
 		}
@@ -916,7 +916,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 			return allCharacters;
 		}

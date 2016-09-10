@@ -434,7 +434,7 @@ namespace JMMAndroid.ViewModel
 				}
 				catch (Throwable ex)
 				{
-					BaseConfig.MyAnimeLog.Debug("Error in FileSelectionDisplay: {0}", ex);
+					BaseConfig.MyAnimeLog.Write("Error in FileSelectionDisplay: {0}", ex);
 					return "";
 				}
 			}

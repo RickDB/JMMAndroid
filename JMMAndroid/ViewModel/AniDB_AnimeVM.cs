@@ -572,7 +572,7 @@ namespace JMMAndroid.ViewModel
 				AniDB_VoteVM vote = this.UserVote;
 				if (vote == null)
 				{
-					BaseConfig.MyAnimeLog.Debug("No vote for : " + this.AnimeID);
+					BaseConfig.MyAnimeLog.Write("No vote for : " + this.AnimeID);
 					return "";
 				}
 				else
@@ -606,7 +606,7 @@ namespace JMMAndroid.ViewModel
 					}
 					catch (Exception ex)
 					{
-						BaseConfig.MyAnimeLog.Debug("TvSummary\r\n" + ex.ToString());
+						BaseConfig.MyAnimeLog.Write("TvSummary\r\n" + ex.ToString());
 					}
 				}
 				return tvSummary;

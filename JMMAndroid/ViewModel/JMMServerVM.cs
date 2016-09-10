@@ -179,7 +179,7 @@ namespace JMMAndroid.ViewModel
 				OnServerStatusEvent(evt);
 
 				string msg = string.Format("JMM Server Status: {0}/{1} -- {2}/{3}", GeneralQueueState, GeneralQueueCount, HasherQueueState, HasherQueueCount);
-				//BaseConfig.MyAnimeLog.Debug(msg);
+				//BaseConfig.MyAnimeLog.Write(msg);
 			}
 
 			catch { }
@@ -217,7 +217,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 			}
 		}
 
@@ -233,7 +233,7 @@ namespace JMMAndroid.ViewModel
 			{
 				AnimePluginSettings settings = new AnimePluginSettings();
 				string url = string.Format(@"http://{0}:{1}/JMMServerBinary", settings.JMMServer_Address, settings.JMMServer_Port);
-				BaseConfig.MyAnimeLog.Debug("JMM Server URL: " + url);
+				BaseConfig.MyAnimeLog.Write("JMM Server URL: " + url);
 
 				BinaryMessageEncodingBindingElement encoding = new BinaryMessageEncodingBindingElement();
 				encoding.ReaderQuotas.MaxArrayLength = int.MaxValue;
@@ -277,14 +277,14 @@ namespace JMMAndroid.ViewModel
 				GetServerSettings();
 				RefreshImportFolders();
 
-				BaseConfig.MyAnimeLog.Debug("JMM Server Status: " + status.GeneralQueueState);
+				BaseConfig.MyAnimeLog.Write("JMM Server Status: " + status.GeneralQueueState);
 
 				return true;
 			}
 			catch (Exception ex)
 			{
 				//Utils.ShowErrorMessage(ex);
-				BaseConfig.MyAnimeLog.Debug(ex.ToString());
+				BaseConfig.MyAnimeLog.Write(ex.ToString());
 				return false;
 			}
 
@@ -318,7 +318,7 @@ namespace JMMAndroid.ViewModel
 			}
 			catch (Exception ex)
 			{
-				BaseConfig.MyAnimeLog.Debug("RefreshImportFolders: " + ex.ToString());
+				BaseConfig.MyAnimeLog.Write("RefreshImportFolders: " + ex.ToString());
 			}
 
 		}
@@ -364,7 +364,7 @@ namespace JMMAndroid.ViewModel
 			if (CurrentUser != null) selectedLabel = selectedLabel  - 2;
 			JMMUserVM selUser = allUsers[selectedLabel];;
 
-			BaseConfig.MyAnimeLog.Debug("selected user label: " + selectedLabel.ToString());
+			BaseConfig.MyAnimeLog.Write("selected user label: " + selectedLabel.ToString());
 
 			// try and auth user with a blank password
 
