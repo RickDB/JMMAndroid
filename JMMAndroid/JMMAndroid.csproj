@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1896E976-2B3E-441F-8324-84103E411181}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JMMAndroid</RootNamespace>
+    <AssemblyName>JMMAndroid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncImageResource.cs" />
+    <Compile Include="BaseConfig.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataHelpers\BlockingList.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Events\GotAnimeEventArgs.cs" />
+    <Compile Include="Events\GotAnimeForRecommendedEventArgs.cs" />
+    <Compile Include="Events\GotAnimeForRelatedEventArgs.cs" />
+    <Compile Include="Events\GotCharacterCreatorImagesEventArgs.cs" />
+    <Compile Include="Events\GotCharacterImagesEventArgs.cs" />
+    <Compile Include="Events\ServerStatusEventArgs.cs" />
+    <Compile Include="ImageManagement\ImageDownloader.cs" />
+    <Compile Include="ImageManagement\ImageDownloadEventArgs.cs" />
+    <Compile Include="ImageManagement\ImageDownloadRequest.cs" />
+    <Compile Include="ImageManagement\QueueUpdateEventArgs.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="MultiSortLib\MultiSort.cs" />
+    <Compile Include="MultiSortLib\QuickSort.cs" />
+    <Compile Include="MultiSortLib\SortSearchCriteria.cs" />
+    <Compile Include="MultiSortLib\ValueComparison.cs" />
+    <Compile Include="MyAnimeLog.cs" />
+    <Compile Include="Service References\JMMImageServer\Reference.cs" />
+    <Compile Include="Service References\JMMImageServer\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\JMMServerBinary\Reference.cs" />
+    <Compile Include="Service References\JMMServerBinary\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AnimePluginSettings.cs" />
+    <Compile Include="Translation.cs" />
+    <Compile Include="TvDBDetails.cs" />
+    <Compile Include="TvDBSummary.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ViewModel\AniDBReleaseGroupVM.cs" />
+    <Compile Include="ViewModel\AniDB_AnimeCrossRefsVM.cs" />
+    <Compile Include="ViewModel\AniDB_AnimeVM.cs" />
+    <Compile Include="ViewModel\AniDB_Anime_DefaultImageVM.cs" />
+    <Compile Include="ViewModel\AniDB_Anime_RelationVM.cs" />
+    <Compile Include="ViewModel\AniDB_CharacterVM.cs" />
+    <Compile Include="ViewModel\AniDB_SeiyuuVM.cs" />
+    <Compile Include="ViewModel\AniDB_VoteVM.cs" />
+    <Compile Include="ViewModel\AnimeEpisodeTypeVM.cs" />
+    <Compile Include="ViewModel\AnimeEpisodeVM.cs" />
+    <Compile Include="ViewModel\AnimeGroupVM.cs" />
+    <Compile Include="ViewModel\AnimeSeriesVM.cs" />
+    <Compile Include="ViewModel\BookmarkedAnimeVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_MALResultVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_MALVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_OtherResultVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_OtherVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_TraktResultVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_TraktVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_TvDBEpisodeVM.cs" />
+    <Compile Include="ViewModel\CrossRef_AniDB_TvDBVM.cs" />
+    <Compile Include="ViewModel\FanartContainer.cs" />
+    <Compile Include="ViewModel\FileFfdshowPresetVM.cs" />
+    <Compile Include="ViewModel\GroupFilterConditionVM.cs" />
+    <Compile Include="ViewModel\GroupFilterExtendedVM.cs" />
+    <Compile Include="ViewModel\GroupFilterHelper.cs" />
+    <Compile Include="ViewModel\GroupFilterSortingCriteria.cs" />
+    <Compile Include="ViewModel\GroupFilterVM.cs" />
+    <Compile Include="ViewModel\GroupVideoQualityVM.cs" />
+    <Compile Include="ViewModel\ImportFolderVM.cs" />
+    <Compile Include="ViewModel\IVM.cs" />
+    <Compile Include="ViewModel\JMMServerHelper.cs" />
+    <Compile Include="ViewModel\JMMServerVM.cs" />
+    <Compile Include="ViewModel\JMMUserVM.cs" />
+    <Compile Include="ViewModel\MALSearchResultVM.cs" />
+    <Compile Include="ViewModel\MovieDBMovieSearchResultVM.cs" />
+    <Compile Include="ViewModel\MovieDB_FanartVM.cs" />
+    <Compile Include="ViewModel\MovieDB_MovieVM.cs" />
+    <Compile Include="ViewModel\MovieDB_PosterVM.cs" />
+    <Compile Include="ViewModel\PosterContainer.cs" />
+    <Compile Include="ViewModel\RecommendationVM.cs" />
+    <Compile Include="ViewModel\ReleaseGroupVM.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\TraktTVShowResponseVM.cs" />
+    <Compile Include="ViewModel\Trakt_EpisodeVM.cs" />
+    <Compile Include="ViewModel\Trakt_ImageFanartVM.cs" />
+    <Compile Include="ViewModel\Trakt_ImagePosterVM.cs" />
+    <Compile Include="ViewModel\Trakt_SeasonVM.cs" />
+    <Compile Include="ViewModel\Trakt_ShowVM.cs" />
+    <Compile Include="ViewModel\TVDBSeriesSearchResultVM.cs" />
+    <Compile Include="ViewModel\TvDB_EpisodeVM.cs" />
+    <Compile Include="ViewModel\TvDB_ImageFanartVM.cs" />
+    <Compile Include="ViewModel\TvDB_ImagePosterVM.cs" />
+    <Compile Include="ViewModel\TvDB_ImageWideBannerVM.cs" />
+    <Compile Include="ViewModel\TvDB_SeriesVM.cs" />
+    <Compile Include="ViewModel\VideoDetailedVM.cs" />
+    <Compile Include="ViewModel\VideoLocalVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GettingStarted.Xamarin" />
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Service References\JMMImageServer\JMMServerImage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMImageServer\JMMServerImage1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMImageServer\JMMServiceImplementationImage.wsdl" />
+    <None Include="Service References\JMMServerBinary\JMMServerBinary.wsdl" />
+    <None Include="Service References\JMMServerBinary\JMMServerBinary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMServerBinary\JMMServerBinary1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMServerBinary\JMMServerBinary2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMServerBinary\JMMServerBinary3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMServerBinary\JMMServerBinary4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\JMMServerBinary\JMMServiceImplementation.wsdl" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AdminMessage.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDBAnime.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDBReleaseGroup.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDBVote.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_AnimeCrossRefs.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_AnimeDetailed.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Anime_Relation.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Anime_Similar.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Character.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Episode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Recommendation.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AniDB_Seiyuu.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeEpisode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeGroup.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeGroup_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeRating.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeSearch.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeSeries.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AnimeSeries_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_AppVersions.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Azure_AnimeLink.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Azure_CrossRef_AniDB_Trakt.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Azure_CrossRef_AniDB_TvDB.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_BookmarkedAnime.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_BookmarkedAnime_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ChangesOfContract_GroupFilterFG2lp1Ah.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_MALResult.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_Other.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_OtherResult.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_TraktV2.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_Trakt_Episode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_TvDBV2.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_AniDB_TvDB_Episode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CrossRef_CustomTag_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CustomTag.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_CustomTag_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_DuplicateFile.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_FileFfdshowPreset.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_GroupFileSummary.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_GroupFilter.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_GroupFilterExtended.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_GroupFilter_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_GroupVideoQuality.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_IgnoreAnime.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ImportFolder.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ImportFolder_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_JMMUser.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MainChanges.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MALAnimeResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MissingEpisode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MissingFile.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MovieDBMovieSearchResult.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MovieDB_Fanart.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_MovieDB_Poster.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Playlist.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Playlist_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Recommendation.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_RenameScript.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_RenameScript_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ServerSettings.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ServerSettings_SaveResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ServerStatus.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_ToggleWatchedStatusOnEpisode_Response.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TraktTVShowResponse.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Trakt_CommentUser.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Trakt_Episode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Trakt_ImageFanart.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_Trakt_ImagePoster.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TvDBLanguage.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TVDBSeriesSearchResult.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TvDB_Episode.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TvDB_ImageFanart.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TvDB_ImagePoster.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_TvDB_ImageWideBanner.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_VideoDetailed.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_VideoLocal.datasource" />
+    <None Include="Service References\JMMServerBinary\MyAnimePlugin3.JMMServerBinary.Contract_VideoLocalRenamed.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\JMMImageServer\configuration.svcinfo" />
+    <Content Include="Service References\JMMImageServer\configuration91.svcinfo" />
+    <Content Include="Service References\JMMImageServer\JMMServerImage.disco" />
+    <Content Include="Service References\JMMImageServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\JMMServerBinary\configuration.svcinfo" />
+    <Content Include="Service References\JMMServerBinary\configuration91.svcinfo" />
+    <Content Include="Service References\JMMServerBinary\JMMServerBinary.disco" />
+    <Content Include="Service References\JMMServerBinary\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Downloads\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+		<Target Name="BeforeBuild">
+		</Target>
+		<Target Name="AfterBuild">
+		</Target>
+ -->
+</Project>
